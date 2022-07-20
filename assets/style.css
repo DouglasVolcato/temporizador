@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 90%;
+    width: 100%;
+    background-color: black;
+    padding: 3vw;
+}
+h1{
+    font-size: 4vw;
+    color: white;
+    margin-bottom: 3vw;
+}
+input{
+    width: 30%;
+    font-size: 2vw;
+    background-color: wheat;
+    color: black;
+    padding: 0.3vw;
+}
+button{
+    font-size: 2vw;
+    background-color: wheat;
+    color: black;
+    padding: 0.3vw;
+    width: 20vw;
+    margin: 3vw;
+    font-weight: bold;
+}
+button:hover{
+    background-color: aqua;
+}
+p{
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+}
+form{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
