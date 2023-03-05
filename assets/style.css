@@ -1,45 +1,71 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-html,body{
+
+html,
+body {
     height: 90%;
     width: 100%;
-    background-color: black;
-    padding: 3vw;
+    background-color: rgb(4, 69, 3);
+    padding-top: 20px;
 }
-h1{
-    font-size: 4vw;
+
+h1 {
+    text-align: center;
+    font-size: 30px;
     color: white;
-    margin-bottom: 3vw;
+    margin-bottom: 20px;
 }
-input{
-    width: 30%;
-    font-size: 2vw;
-    background-color: wheat;
-    color: black;
-    padding: 0.3vw;
-}
-button{
-    font-size: 2vw;
-    background-color: wheat;
-    color: black;
-    padding: 0.3vw;
-    width: 20vw;
-    margin: 3vw;
-    font-weight: bold;
-}
-button:hover{
-    background-color: aqua;
-}
-p{
-    color: white;
-    font-size: 4vw;
+
+input {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 200px;
+    height: fit-content;
+    font-size: 30px;
+    background-color: #646464;
+    color: rgb(255, 255, 255);
+    border: solid 2px rgb(0, 0, 0);
+    padding: 5px;
+    border-radius: 100px;
     text-align: center;
 }
-form{
+
+p {
+    color: white;
+    font-size: 40px;
+    width: fit-content;
+    margin: auto;
+}
+
+form {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    width: 98vw;
+    margin: auto;
+}
+
+#inputDiv {
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+}
+
+button {
+    font-size: 30px;
+    background-color: rgb(222, 222, 222);
+    color: black;
+    padding: 5px;
+    width: 200px;
+    font-weight: bold;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 100px;
+}
+
+button:hover {
+    background-color: rgb(225, 9, 9);
+    color: aliceblue;
 }
