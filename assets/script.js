@@ -1,51 +1,62 @@
-async function iniciar(){
-    const horas = document.querySelector("#horas");
-    const minutos = document.querySelector("#minutos");
-    const segundos = document.querySelector("#segundos");
-    const count = document.querySelector("#count");
-    const button = document.querySelector("#button");
-    const time = ((Number(segundos.value)) + (Number(minutos.value * 60)) + (Number(horas.value * 3600)));
+async function iniciar() {
+  const horas = document.querySelector("#horas");
+  const minutos = document.querySelector("#minutos");
+  const segundos = document.querySelector("#segundos");
+  const count = document.querySelector("#count");
+  const button = document.querySelector("#button");
+  const time =
+    Number(segundos.value) +
+    Number(minutos.value * 60) +
+    Number(horas.value * 3600);
 
-    button.setAttribute("disabled", "disabled");
-    horas.value = "";
-    minutos.value = "";
-    segundos.value = "";
+  button.setAttribute("disabled", "disabled");
+  horas.value = "";
+  minutos.value = "";
+  segundos.value = "";
 
-    for (let i = time; i >= 0; i--){
-
-        await new Promise((resolve) => 
-        setTimeout(() => resolve(), 1000)
-        )
-            .then (count.innerText = plotTime(i));
-    }
-    horas.value = "";
-    minutos.value = "";
-    segundos.value = "";
-    button.removeAttribute("disabled", "disabled");
+  for (let i = time; i >= 0; i--) {
+    await new Promise((resolve) => setTimeout(() => resolve(), 1000)).then(
+      (count.innerText = plotTime(i))
+    );
+  }
+  horas.value = "";
+  minutos.value = "";
+  segundos.value = "";
+  button.removeAttribute("disabled", "disabled");
 }
 
-function plotTime(numSeconds){
-    const seconds = Number(numSeconds);
+function playAudio() {
+  const audio = document.getElementById("myAudio");
+  console.log(audio.attributes);
+  audio.play();
+}
 
-    const hour = parseInt(seconds / 3600);
-    const restHour = parseInt(seconds % 3600);
+function plotTime(numSeconds) {
+  const seconds = Number(numSeconds);
 
-    const minutes = parseInt(restHour / 60);
-    const restMinutes = parseInt(seconds % 60);
+  const hour = parseInt(seconds / 3600);
+  const restHour = parseInt(seconds % 3600);
 
-    let clockHour = hour.toString();
-    let clockMinute = minutes.toString();
-    let clockSecond = restMinutes.toString();
+  const minutes = parseInt(restHour / 60);
+  const restMinutes = parseInt(seconds % 60);
 
-    if(clockHour.length == 1){
-        clockHour = "0" + clockHour;
-    }
-    if(clockMinute.length == 1){
-        clockMinute = "0" + clockMinute;
-    }
-    if(clockSecond.length == 1){
-        clockSecond = "0" + clockSecond;
-    }
+  let clockHour = hour.toString();
+  let clockMinute = minutes.toString();
+  let clockSecond = restMinutes.toString();
 
-    return(`${clockHour}:${clockMinute}:${clockSecond}`);
+  if (clockHour.length == 1) {
+    clockHour = "0" + clockHour;
+  }
+  if (clockMinute.length == 1) {
+    clockMinute = "0" + clockMinute;
+  }
+  if (clockSecond.length == 1) {
+    clockSecond = "0" + clockSecond;
+  }
+
+  if (clockHour === "00" && clockMinute === "00" && clockSecond === "00") {
+    playAudio();
+  }
+
+  return `${clockHour}:${clockMinute}:${clockSecond}`;
 }
